@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let person = { name: 'lisi', age: 45 };
+        let { name, age } = person;
+        console.log(name);
+        console.log(age);
+
+        let person1 = { name: '刘德华', age: 18 };
+        let { name: myName, age: myAge } = person1;//myName  myAge  属于别名
+        // 使用别名输出
+        console.log(myName);
+        console.log(myAge);
+    </script>
+</body>
+
+</html>

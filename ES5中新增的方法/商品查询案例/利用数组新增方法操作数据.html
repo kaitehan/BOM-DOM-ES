@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .title {
+            width: 800px;
+            margin: 100px auto;
+            padding: 0 100px;
+        }
+
+        p {
+            display: inline;
+        }
+
+        input {
+            width: 50px;
+            outline: none;
+        }
+
+        table {
+            width: 800px;
+            margin: 20px auto;
+            border-top: 1px solid #333;
+            border-left: 1px solid #333;
+            border-collapse:collapse;
+        }
+
+        td {
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-right: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <button class="all">显示全部</button>
+        <p>按照价格查询：</p> <input type="text" class="start">
+        <p>-</p> <input type="text" class="end"> <button class="price_search">搜索</button>
+        <p>按照商品名称查询：</p> <input type="text" class="name"> <button class="name_search">搜索</button>
+    </div>
+    <table >
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>产品名称</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var tbody = document.querySelector('tbody');
+
+        var all = document.querySelector('.all');
+
+        var start = document.querySelector('.start');
+        var end = document.querySelector('.end');
+        var price_search = document.querySelector('.price_search');
+
+        var product_name = document.querySelector('.name');
+        var name_search = document.querySelector('.name_search');
+       var data = [{
+           id: 1,
+           name: '小米',
+           price: 2999
+       },{
+           id: 2,
+           name: 'oppo',
+           price: 1999
+       },{
+           id: 3,
+           name: '华为',
+           price: 3999
+       },{
+           id: 4,
+           name: '荣耀',
+           price: 999
+       }];
+    //    显示全部数据
+       setData(data);
+       all.addEventListener('click',function(){
+           setData(data);
+       })
+    //    1.渲染表格函数
+       function setData(Data) {
+           tbody.innerHTML = '';
+           Data.forEach(function(value) {
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td>'+value.id+'</td><td>'+value.name+'</td><td>'+value.price+'</td>'
+                tbody.appendChild(tr);
+           })
+       }
+    //    2.按价格查询
+    price_search.addEventListener('click',function(){  
+        var newData = data.filter(function(value) {
+            return value.price >= start.value && value.price <= end.value;
+        });
+        setData(newData);
+    })
+    // 3.按名称查询
+    name_search.addEventListener('click',function(){
+        var arr = [];
+        data.some(function(value) {
+            if(value.name == product_name.value){
+                arr.push(value);
+                return true;
+            }
+        })
+        setData(arr);
+    })
+    </script>
+</body>
+
+</html>

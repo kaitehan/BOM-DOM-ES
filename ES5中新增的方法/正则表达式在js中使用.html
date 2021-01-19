@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正则表达式在js中的使用
+
+        // 1.利用RegExp对象来建立  正则表达式
+        var reg = new RegExp(/abc/);
+        
+        console.log(reg.test('abc'));
+        // 2.利用字面量  建立 正则表达式
+        var  regv  = /abc/;
+        
+        console.log(regv.test('abcde'));
+    </script>
+</body>
+</html>

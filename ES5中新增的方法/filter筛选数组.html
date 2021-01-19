@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //filter  筛选数组
+        // 返回时一个数组 而且是把所有满足条件的元素返回
+        var arr = [3,45,62,8];
+        var newArr = arr.filter(function(value,index,array) {
+            // return value >=22;
+            return value % 2 ===0;
+        })
+        console.log(newArr);
+    </script>
+</body>
+</html>

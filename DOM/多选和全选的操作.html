@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tb {
+            width: 300px;
+            /* background-color: pink; */
+            margin: 100px auto;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        table th {
+            height: 25px;
+            font-weight: normal;
+            text-align: center;
+            background-color:#ccc;
+            padding: 0 5px;
+            cursor: default;
+        }
+        table td {
+            height: 20px;
+            text-align: left;
+            line-height: 20px;
+            border-bottom: 1px solid #ccc;
+            padding: 0 5px;
+            cursor: default;
+        }
+        .bg {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="tb">
+        <table cellspacing='0'>
+            <thead>
+                <tr>
+                    <th><input type="checkbox"  id="j_cbAll"></th>
+                    <th>兴趣爱好</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td><input type="checkbox" ></td>
+                    <td>围棋</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>足球</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>篮球</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>游泳</td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            // 获取元素
+            var j_cbAll = document.getElementById('j_cbAll');
+            var j_tbs = document.getElementById('j_tb').getElementsByTagName('input');
+            var line = document.getElementById('j_tb').querySelectorAll('tr');
+            j_cbAll.onclick = function() {
+                // this.checked;
+                for(var i=0;i<j_tbs.length;i++){
+                    j_tbs[i].checked=this.checked;
+                }
+            }
+
+            for(var i=0;i<j_tbs.length;i++){          
+                j_tbs[i].onclick= function() {
+                    var flag=true;
+                    for(var i=0;i<j_tbs.length;i++){
+                        if(!j_tbs[i].checked){
+                            flag=false;
+                            break;
+                        }
+                    }
+                    j_cbAll.checked = flag;
+                }   
+            }
+
+            for(var i=0; i<line.length;i++){
+                line[i].onmouseover = function() {
+                    this.className = 'bg';
+                }
+            }
+            for(var i=0; i<line.length;i++){
+                line[i].onmouseout = function() {
+                    this.className = '';
+                }
+            }
+        </script>
+    </div>
+    
+</body>
+</html>

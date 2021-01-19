@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            margin: 100px auto;
+
+        }
+        ul li {
+            float: left;
+            width: 24px;
+            height: 24px;
+            margin: 15px ;
+            list-style: none;
+            background-color: pink;
+            background: url(img/jlt.png) no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+    <script>
+        var box = document.getElementById('box')
+        var list = box.querySelectorAll('li');
+        for(var i=0;i<list.length;i++){
+            var index = i*44;
+            list[i].style.backgroundPosition='0 -'+index+'px'
+        }
+    </script>
+    
+</body>
+</html>

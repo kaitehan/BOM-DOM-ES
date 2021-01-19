@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object.defineProperty()  定义新属性或者修改原有属性
+        // obj :必需。  目标对象
+        // prop:必需。  需定义或者修改属性的名字
+        // descriptor: 必需。 目标属性所拥有的特性。
+        // descriptor说明： 以对象形式书写
+        // *  value :设置属性值  默认为undefined
+        // *  writable: 值是否可以重写。  true | false  默认为false
+        // *  enumerable: 目标属性是否可以被枚举。 true | false 默认为 false
+        // *  configurable: 目标属性是否可以被删除或者可以再次修改特性 true|false 默认为false
+
+        var obj = {
+            id: 2,
+            name: '小米',
+            price: 2344
+        }
+
+        // obj.num = 456;
+        // console.log(obj.num);
+
+        Object.defineProperty(obj,'num',{
+            value :564,
+            //writable 如果值为false 则不允许修改这个属性值  默认值也为false
+            writable: false
+        })
+        console.log(obj.num);
+
+        obj.num = 123;
+        console.log(obj.num);
+
+        Object.defineProperty(obj,'address',{
+            value:'sdgasdgsd',
+            //writable 如果值为false 则不允许遍历  默认值也为false  遍历时拿不到这个属性
+            enumerable:false,
+
+            // configurable:如果值为false 目标属性是不可以被删除 且 不可以再次修改特性  默认为false
+            configurable: false
+        })
+        console.log(Object.keys(obj));
+        // 删除属性
+        delete obj.address;
+        console.log(obj);
+        delete obj.price;
+        console.log(obj);
+    </script>
+</body>
+</html>

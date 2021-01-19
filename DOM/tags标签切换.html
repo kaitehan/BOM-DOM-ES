@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .w {
+            width: 1200px;
+        }
+        .introduce {
+            margin: 200px auto;
+        }
+        .tags {
+            height: 40px;
+            border-bottom: 1px solid red;
+            background-color: rgb(241, 241, 241);
+        }
+        .tags ul li{
+            float: left;
+            color: #666;
+            text-align: center;
+            line-height: 40px;
+            padding: 0 20px;
+            list-style: none;
+            cursor: pointer;
+        }
+        .join {
+            float: right;
+            height: 30px ;
+            color: #fff;
+            font-style: normal;
+            font-size: 16px;
+            text-align: center;
+            line-height: 30px;
+            background-color: red;
+            padding: 0 20px;
+            margin:7px 10px 3px 10px;
+            cursor: pointer;
+        }
+        .tags a {
+            float: right;
+            height: 40px;
+            color: rgb(71, 177, 219);
+            text-align: center;
+            line-height: 40px;
+            font-size: 14px;
+            background: url(img/mess.png) no-repeat left center;
+            padding-left: 20px;
+            text-decoration: none;
+        }
+        .tags ul .bg {
+            color: #fff;
+            background-color: red;
+        }
+        .item {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="w introduce">
+        <div class="w tags" id="tag">
+            <ul>
+                <li class="bg">商品详情</li>
+                <li>商品参数</li>
+                <li>商品图片</li>
+                <li>商品地址</li>
+            </ul>
+            <i class="join">加入购物车</i>
+            <a href="#">联系我们</a>
+        </div>
+        <div class="w" id="body">
+            <div class="w item" style="display: block;">商品的详细信息</div>
+            <div class="w item">商品的参数信息</div>
+            <div class="w item">商品的图片信息</div>
+            <div class="w item">商品的地址信息</div>
+        </div> 
+    </div>
+    <script>
+        var tags = document.getElementById('tag').querySelectorAll('li');
+        var lis = document.querySelectorAll('.item');
+
+        for(var i=0;i<tags.length;i++){
+            tags[i].setAttribute('data-index',i);
+            tags[i].onclick = function() {
+                for(var i=0;i<tags.length;i++){
+                    tags[i].className='';
+                }
+                this.className='bg';
+
+                var index=this.getAttribute('data-index');
+                for(var i=0;i<lis.length;i++){
+                    lis[i].style.display = 'none';
+                }
+                lis[index].style.display='block';
+            }
+        } 
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search {
+            position: relative;
+            width: 150px;
+            margin: 100px auto;
+        }
+        .con {
+            display: none;
+            position: absolute;
+            top: -10px;
+            width: 300px;
+            height: 20px;
+            padding: 5px 0;
+            font-size: 18px;
+            color: #333;
+            line-height: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+        }
+
+        .con::before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 28px;
+            left: 18px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <input type="text" name="" id="">
+        <div class="con">123</div>
+        <input type="text" placeholder="请输入你的快递单号" class="jd">
+    </div>
+    <script>
+        var con = document.querySelector('.con');
+        var jd = document.querySelector('.jd');
+        jd.addEventListener('keyup',function() {
+            if(this.value === ''){
+                con.style.display = 'none';
+                
+            }
+            else{
+                con.style.display = 'block';
+                con.innerHTML = jd.value;
+            }
+        })
+        jd.onfocus = function() {
+            if(this.value === ''){
+                con.style.display = 'none';
+            }else {
+                con.style.display = 'block';
+                con.innerHTML = jd.value;
+            }
+        }
+
+        jd.onblur = function() {
+            con.style.display = 'none';
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // some 查找数组中是否有满足条件的元素
+        // 返回值为布尔值，找到为true ,找不到则为false
+        // 如果找到第一个满足条件的元素，则终止循环，不再继续查找
+        var arr = [10,30,4];
+        var flag = arr.some(function(value ,index,array) {
+            // return  value >=20;
+            return value < 3;
+        })
+        console.log(flag);
+        var arr1 = ['b','a','d'];
+        var flag2 = arr1.some(function(value) {
+            return value == 'a';
+        })
+        console.log(flag2);
+
+        // filter  返回时一个数组 而且是把所有满足条件的元素返回
+        // some   返回值为布尔值，找到为true ,找不到则为false    如果找到第一个满足条件的元素，则终止循环，不再继续查找
+    </script>
+</body>
+</html>

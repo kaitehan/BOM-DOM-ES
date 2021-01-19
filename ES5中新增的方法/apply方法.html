@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var o = {
+            id:1,
+            name:'askdg'
+        }
+
+        function f() {
+            console.log(111+this);
+        }
+        f.apply();
+        f.apply(o);
+        // 1.可以调用函数  可以改变函数的this 指向
+        // 2.传入的参数只能说 数组或者为数组         一般用于Math等内置对象
+        var arr= [1,8,56,157,12];
+        var max = Math.max.apply(Math,arr);
+        var min = Math.min.apply(Math,arr);
+        console.log(min+','+max);
+    </script>
+</body>
+</html>

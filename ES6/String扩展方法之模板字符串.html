@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <section></section>
+    <script>
+        var bd = document.querySelector('section');
+
+
+        // 模板字符串解析变量
+        let age =12;
+        let name = 'hanxin';
+        let str =`这是一个${age}模板${name}字符串`;
+        console.log(str);
+
+
+        // 模板字符串中可以换行
+        let res ={
+            id:1,
+            name:'hanxin',
+            age:45
+        };
+        let html = `<div>
+            <span>${res.id}</span>
+            <span>${res.name}</span>
+            <span>${res.age}</span>
+        </div>`
+        bd.innerHTML = html;
+
+        // 模板字符串中可以调用函数
+        const fn = function() {
+             return '456456'
+        }
+        let strr = `sklgj${fn()}sdgasg`;
+        console.log(strr);
+
+    </script>
+</body>
+</html>

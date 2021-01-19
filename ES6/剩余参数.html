@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 剩余参数使用
+        const sum = (...args) => {
+            let total = 0;
+            args.forEach(element => {
+                total +=element;
+            });
+            return total;
+        };
+
+        console.log(sum(10,20));
+        console.log(sum(10,20,30));
+        // 剩余参数和结构配合使用
+        let arr = ['张三','李四','王五'];
+        let [name,...args] = arr;
+        console.log(name);
+        console.log(args);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字符类：[] 表示一系列字符可供选择，只要匹配其中一个就可以
+        
+        var rg = /[abc]/;//只要包含  a、b或者c  都返回为true
+        console.log(rg.test('andy'));
+        console.log(rg.test('baby'));
+        console.log(rg.test('color'));
+        console.log(rg.test('red'));
+        console.log('----------------');
+        var rg1 = /^[abc]$/;// 三选一 只有是 a、b或者c  都返回为true
+        console.log(rg1.test('aa'));
+        console.log(rg1.test('b'));
+        console.log(rg1.test('c'));
+        console.log(rg1.test('abc'));
+        console.log('----------------');
+        var rg2 = /^[a-z]$/;// 26个英文字母中任何一个字母 都返回为true
+        console.log(rg2.test('aa'));
+        console.log(rg2.test('b'));
+        console.log(rg2.test('z'));
+        console.log(rg2.test('ac'));
+        console.log('----------------');
+        var rg3 = /^[a-zA-Z0-9_-]$/;// 26个大小写英文字母、0-9数字、符号等中任何一个字母 都返回为true
+        console.log(rg3.test(1));
+        console.log(rg3.test('-'));
+        console.log(rg3.test('ab'));
+        console.log(rg3.test('c'));
+        console.log(rg3.test('A'));
+        console.log('----------------');
+        var rg4 = /^[^a-zA-Z0-9_-]$/;// 26个大小写英文字母、0-9数字、符号等中任何一个字母 都返回为true
+        // 如果 ^ 在中括号里面  表示取法的意思  要和边界符 ^ 别混淆
+        console.log(rg4.test(1));
+        console.log(rg4.test('-'));
+        console.log(rg4.test('ab'));
+        console.log(rg4.test('c'));
+        console.log(rg4.test('A'));
+        console.log('----------------');
+    </script>
+</body>
+</html>

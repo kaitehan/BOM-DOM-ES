@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //边界符  ^  $
+        var reg = /123/;  //正则表达式里面不需要加引号  不管是数字还是字符串
+        //  /abc/ 只要包含有 123 这个数字串 返回的都是 true
+        console.log(reg.test(123));
+        console.log(reg.test(1234));
+        console.log(reg.test(1123));
+        console.log('----------------------');
+        var  rega = /^abc/;//必须是以abc开头 的字符串
+        console.log(rega.test('abc'));
+        console.log(rega.test('abcd'));
+        console.log(rega.test('aabc'));
+        console.log('----------------------');
+        var  rega = /^abc$/;//必须是  abc 这个字符串
+        console.log(rega.test('abc'));
+        console.log(rega.test('abcd'));
+        console.log(rega.test('aabc'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 470px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        #text_area {
+            width: 400px;
+            height: 50px;
+            border: 1px solid #ccc;
+            resize: none;
+            outline: none;
+        }
+
+        .box button {
+            width: 50px;
+            font-size: 14px;
+            color: #fff;
+            border: 1px solid #ccc;
+            background-color: rgb(231, 183, 50);
+            margin-bottom: 5px;
+        }
+
+        #review {
+            width: 450px;
+            border-top: 1px solid #ccc;
+        }
+
+        #review li {
+            position: relative;
+            width: 450px;
+            height: 50px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            padding: 0 5px;
+            margin-top: 10px;
+            list-style: none;
+        }
+
+        #review li a {
+            position: absolute;
+            display: inline-block;
+            bottom: 5px;
+            right: 10px;
+            height: 20px;
+            color: #333;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            padding: 0 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <textarea id="text_area"></textarea>
+        <button>发表</button>
+        <ul id="review">
+            <li>111 <a href="javascript:;">删除</a></li>
+        </ul>
+    </div>
+    <script>
+        var text = document.getElementById('text_area');
+        var btn = document.querySelector('button');
+        var rev = document.getElementById('review');
+
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert('您没有输入内容');
+                return false;
+            } else {
+                var li = document.createElement('li');
+                li.innerHTML = text.value + '<a>删除</a>'
+                // rev.appendChild(li);
+                rev.insertBefore(li, rev.children[0]);
+                text.value = '';
+                var lis = rev.querySelectorAll('li');
+                for (var i = 0; i < lis.length; i++) {
+                    var del = lis[i].querySelector('a');
+                    del.onclick = function () {
+                        rev.removeChild(this.parentNode);
+                    }
+                }
+
+
+            }
+
+            // li.innerHtml = text.value + '<a herf="javascript:;">删除</a>'
+        }
+    </script>
+
+</body>
+
+</html>

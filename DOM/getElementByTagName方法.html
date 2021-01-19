@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>11111111</li>
+        <li>aaaaaa</li>
+        <li>bbbbbb</li>
+        <li>ccccccc</li>
+        <li>ddddddd</li>
+    </ul>
+    <ul id="second">
+        <li>11</li>
+        <li>aaaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+    </ul>
+    <script>
+        // 返回的是 获取过来的元素对象的集合，以伪数组的形式存储的
+        var list = document.getElementsByTagName('li');
+        console.log(list);
+        // console.log(list[0]);
+        for (var i = 0; i < list.length; i++) {
+            console.log(list[i]);
+        }
+        // element.getElementsByTagName() 可以得到这个元素里面的标签
+        var nav = document.getElementById('second');
+        var list1 = nav.getElementsByTagName('li');
+        console.log(list1);
+
+    </script>
+</body>
+
+</html>

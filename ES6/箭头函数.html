@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在箭头函数中  如果函数体中只有一句代码 并且执行结果解释返回值   函数体的大括号可以省略
+        const sum = (x,y) => x+y;
+        console.log(sum(1,2));
+
+        // 在箭头函数中  如果函数的形参只有一个时  形参外面的括号可以省略
+        const fn = x => console.log(x);
+        fn(5);
+
+        // 箭头函数不绑定this  箭头函数没有自己的this关键字
+        // 如果在箭头函数中使用this  this关键字指向箭头函数定义位置中的this
+        const obj = {name:'lisi'};
+        function fn1 () {
+            console.log(this);
+            return () => {
+                console.log(this);
+            }
+        }
+        const f = fn1.call(obj);
+        f();
+    </script>
+</body>
+</html>

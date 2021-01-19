@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        1111
+    </div>
+    <div>
+        2222
+    </div>
+    <div>
+        3333
+    </div>
+
+    <script>
+        var div = document.querySelectorAll('div');
+
+        // 1.添加事件监听器 匿名函数
+        // for(var i = 0;i<div.length;i++){
+        //     div[i].addEventListener('click',function(){
+        //         alert('1111');
+        //     });
+        // }
+
+        // 2.添加事件监听器  具名函数
+        
+        div[0].addEventListener('click',fn);
+        console.log(fn);
+        function fn() {
+            alert('111111');
+        }
+        // IE9以下版本
+        // div[1].attchEvent('onclick',fn);
+
+        // 3.删除事件监听器
+        div[2].addEventListener('click',fn1)
+        function fn1() {
+            alert('2222');
+            div[2].removeEventListener('click',fn1);
+        }
+        
+        // IE9以下版本
+        // div[2].attachEvent('onclick',fn2)
+        // function fn2() {
+        //     alert('333');
+        //     div[2].detachEvent('onclick',fn2)
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arrLike = {
+            '0':1,
+            '1':2,
+            length:3
+        };
+        // 将伪数组转换为真正的数组
+        var arr = Array.from(arrLike);
+        console.log(arr);
+
+        // 回调函数  ele参数：是每个数组元素的值
+        var arr1 =  Array.from(arrLike,ele => ele*2);
+        console.log(arr1);
+    </script>
+</body>
+</html>

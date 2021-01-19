@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 中括号  字符集合，匹配方括号中的任意字符
+        var reg = /^[abc]$/
+        console.log(reg.test('a'));
+        // 大括号  量词符，里面表示重复的次数
+        var reg = /^abc{3}$/
+        console.log(reg.test('a'));
+        console.log(reg.test('abccc'));
+
+        // 小括号  表示优先级
+        var reg = /^(abc){3}$/
+        console.log(reg.test('abccc'));
+        console.log(reg.test('abc'));
+        console.log(reg.test('abcabcabc'));
+    </script>
+    
+</body>
+</html>

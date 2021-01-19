@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+        }
+        table thead tr th {
+            background-color: #ccc;
+        }
+        table thead tr th,
+        table tbody tr td {
+            height: 30px;
+            color: #333;
+            text-align: center;
+            line-height: 30px;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+            
+        }
+        table tbody tr td a {
+            display: inline-block;
+            cursor: pointer;
+        }
+        table tbody tr td a:hover {
+            color: blue;
+        }
+        .bg {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>分数</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var datas = [{
+            name:'阿里',
+            subject:'js',
+            code:98
+        },{
+            name:'阿吧',
+            subject:'js',
+            code:88
+        },{
+            name:'阿撒',
+            subject:'js',
+            code:68
+        },{
+            name:'阿q',
+            subject:'js',
+            code:69
+        }];
+        var table = document.querySelector('table');
+        var tb = table.querySelector('tbody');
+        for(var i=0;i<datas.length;i++){
+
+            var tr = document.createElement('tr');
+            tb.appendChild(tr);
+
+            for(var k in datas[i]){
+                var td = document.createElement('td');
+                td.innerHTML =  datas[i][k];
+                tr.appendChild(td);
+            }
+
+            var td = document.createElement('td');
+            td.innerHTML = '<a herf="javascript:;">删除</a>';
+            tr.appendChild(td);
+
+            tr.onmouseover = function() {
+                this.className = 'bg';
+            }
+            tr.onmouseout = function() {
+                this.className = '';
+            }
+        }
+
+        var btn = tb.querySelectorAll('a');
+
+        for(var i= 0;i<btn.length;i++){
+            btn[i].onclick = function() {
+                tb.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+</html>

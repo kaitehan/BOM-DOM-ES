@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 用于获取对象自身的属性
+        var obj = {
+            id:1,
+            name: 'xia',
+            age : 44,
+            price :4562
+        }
+        // 返回的是属性名的数组
+        var arr = Object.keys(obj);
+        console.log(arr);
+        arr.forEach(function(value) {
+            console.log(value);
+        })
+    </script>
+</body>
+</html>
